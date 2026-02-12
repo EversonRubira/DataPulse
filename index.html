@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO & WhatsApp Preview -->
+    <title>DataPulse Solutions | Automação, Business Intelligence e Segurança para PMEs em Portugal</title>
+    <meta name="description" content="Parceiros em automação de processos, dashboards inteligentes e segurança de dados. Transformamos dados dispersos em decisões claras.">
+    <meta name="keywords" content="automação processos, business intelligence, dashboards, segurança dados, RGPD, PMEs Portugal, sistemas empresariais, consultoria TI">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="DataPulse Solutions — Automação e BI para PMEs">
+    <meta property="og:description" content="Transformamos dados dispersos em decisões claras. Parceiros em tecnologia para pequenos negócios.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1555949963-aa79dcee981c">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #1c1917;
+            background: #fafaf9;
+            overflow-x: hidden;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* IMAGEM DE FUNDO FIXA */
+        .fixed-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .fixed-background::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(28, 25, 23, 0.82) 0%,
+                rgba(28, 25, 23, 0.58) 50%,
+                rgba(250, 250, 249, 0.94) 100%
+            );
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(250, 250, 249, 0.96);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(28, 25, 23, 0.06);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo svg {
+            width: 36px;
+            height: 36px;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1c1917;
+            letter-spacing: -0.01em;
+        }
+
+        .logo-subtitle {
+            font-size: 0.875rem;
+            color: #78716c;
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a:not(.logo) {
+            color: #57534e;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #1c1917;
+        }
+
+        .nav-cta {
+            padding: 0.625rem 1.5rem;
+            background: #0891b2;
+            color: white !important;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-cta:hover {
+            background: #0e7490;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(8, 145, 178, 0.2);
+        }
+
+        /* SEÇÕES */
+        section {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container-text {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            color: #fafaf9;
+        }
+
+        .hero h1 {
+            font-size: 3.75rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 2rem;
+            letter-spacing: -0.035em;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            opacity: 0.96;
+            line-height: 1.65;
+            margin-bottom: 3rem;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 1.125rem 2.75rem;
+            background: #fafaf9;
+            color: #1c1917;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 12px rgba(250, 250, 249, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(250, 250, 249, 0.3);
+        }
+
+        .btn-secondary {
+            padding: 1.125rem 2.75rem;
+            color: #fafaf9;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 500;
+            border: 1px solid rgba(250, 250, 249, 0.35);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(250, 250, 249, 0.12);
+            border-color: rgba(250, 250, 249, 0.5);
+        }
+
+        /* MANIFESTO */
+        .manifesto {
+            background: rgba(250, 250, 249, 0.98);
+            backdrop-filter: blur(24px);
+            text-align: center;
+        }
+
+        .manifesto blockquote {
+            font-size: 2.5rem;
+            font-weight: 500;
+            line-height: 1.45;
+            margin-bottom: 4rem;
+            font-style: italic;
+            color: #1c1917;
+            letter-spacing: -0.02em;
+        }
+
+        .manifesto ul {
+            list-style: none;
+            font-size: 1.25rem;
+            color: #57534e;
+            line-height: 2.4;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .manifesto li {
+            margin-bottom: 0.5rem;
+        }
+
+        .manifesto li::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            background: #0891b2;
+            border-radius: 50%;
+            margin-right: 1.25rem;
+            vertical-align: middle;
+        }
+
+        /* PROBLEMA */
+        .problema {
+            background: rgba(245, 245, 244, 0.98);
+            backdrop-filter: blur(24px);
+        }
+
+        .problema h2 {
+            font-size: 2.75rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1.25rem;
+            color: #1c1917;
+            letter-spacing: -0.02em;
+        }
+
+        .problema-subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            color: #78716c;
+            margin-bottom: 5rem;
+            font-weight: 400;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .card {
+            background: #fafaf9;
+            padding: 3rem 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(28, 25, 23, 0.06);
+            transition: all 0.35s ease;
+            border: 1px solid rgba(28, 25, 23, 0.04);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(28, 25, 23, 0.1);
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #0891b2, #06b6d4);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .card-icon svg {
+            width: 26px;
+            height: 26px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .card h3 {
+            font-size: 1.375rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            color: #1c1917;
+            letter-spacing: -0.01em;
+        }
+
+        .card p {
+            color: #78716c;
+            line-height: 1.8;
+            font-size: 1.0625rem;
+            font-weight: 400;
+        }
+
+        /* COMO TRABALHAMOS JUNTOS */
+        .como-funciona {
+            background-image:
+                linear-gradient(
+                    180deg,
+                    rgba(28, 25, 23, 0.88) 0%,
+                    rgba(28, 25, 23, 0.65) 55%,
+                    rgba(28, 25, 23, 0.85) 100%
+                ),
+                url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 7rem 0;
+            min-height: auto;
+        }
+
+        .como-funciona h2 {
+            font-size: 2.75rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.02em;
+            color: #fafaf9;
+        }
+
+        .como-funciona-subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            color: rgba(250, 250, 249, 0.85);
+            margin-bottom: 5rem;
+            font-weight: 400;
+        }
+
+        .steps-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 2.5rem;
+            margin-bottom: 4.5rem;
+            align-items: start;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #0891b2, #06b6d4);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .step-icon svg {
+            width: 40px;
+            height: 40px;
+            color: #fafaf9;
+        }
+
+        .step-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #fafaf9;
+            letter-spacing: -0.01em;
+        }
+
+        .step-content p {
+            color: rgba(250, 250, 249, 0.9);
+            line-height: 1.85;
+            font-size: 1.0625rem;
+            font-weight: 400;
+        }
+
+        /* COMEÇAR PEQUENO */
+        .comecar-pequeno {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(24px);
+            text-align: center;
+        }
+
+        .comecar-pequeno h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            color: #1c1917;
+            line-height: 1.35;
+            letter-spacing: -0.02em;
+        }
+
+        .comecar-pequeno p {
+            font-size: 1.25rem;
+            line-height: 2.2;
+            color: #57534e;
+            margin-bottom: 0.75rem;
+            font-weight: 400;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* SOLUÇÕES */
+        .solucoes {
+            background: #fafaf9;
+            padding: 7rem 0;
+            min-height: auto;
+        }
+
+        .solucoes h2 {
+            font-size: 2.75rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        .solucoes-subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            color: #78716c;
+            margin-bottom: 5rem;
+            font-weight: 400;
+        }
+
+        /* FAQ */
+        .faq {
+            background: #f5f5f4;
+            padding: 7rem 0;
+            min-height: auto;
+        }
+
+        .faq h2 {
+            font-size: 2.75rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        .faq-subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            color: #78716c;
+            margin-bottom: 4.5rem;
+            font-weight: 400;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .faq-item {
+            background: #fafaf9;
+            border-radius: 12px;
+            margin-bottom: 1.25rem;
+            overflow: hidden;
+            border: 1px solid rgba(28, 25, 23, 0.06);
+            transition: all 0.2s ease;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(28, 25, 23, 0.1);
+        }
+
+        .faq-question {
+            padding: 1.75rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(28, 25, 23, 0.02);
+        }
+
+        .faq-question h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1c1917;
+            margin: 0;
+            letter-spacing: -0.01em;
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            color: #78716c;
+            transition: transform 0.3s ease;
+            font-weight: 300;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            padding: 0 2rem 1.75rem 2rem;
+            color: #57534e;
+            line-height: 1.85;
+            font-size: 1.0625rem;
+            font-weight: 400;
+        }
+
+        /* QUEM SOMOS */
+        .quem-somos {
+            background: #fafaf9;
+            padding: 7rem 0;
+            min-height: auto;
+        }
+
+        .quem-somos h2 {
+            font-size: 2.75rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        .quem-somos-subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            color: #78716c;
+            margin-bottom: 5rem;
+            font-weight: 400;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-photo {
+            width: 260px;
+            height: 260px;
+            border-radius: 16px;
+            object-fit: cover;
+            margin: 0 auto 2rem;
+            display: block;
+            box-shadow: 0 8px 32px rgba(28, 25, 23, 0.12);
+        }
+
+        .team-member h3 {
+            font-size: 1.625rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1c1917;
+            letter-spacing: -0.01em;
+        }
+
+        .team-role {
+            color: #78716c;
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .team-bio {
+            color: #57534e;
+            line-height: 1.85;
+            font-size: 1.0625rem;
+            font-weight: 400;
+        }
+
+        /* CTA FINAL */
+        .cta-final {
+            background-image:
+                linear-gradient(
+                    135deg,
+                    rgba(28, 25, 23, 0.94) 0%,
+                    rgba(68, 64, 60, 0.88) 100%
+                ),
+                url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fafaf9;
+            text-align: center;
+            padding: 8rem 2rem;
+            min-height: auto;
+        }
+
+        .cta-final h2 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-final p {
+            font-size: 1.375rem;
+            opacity: 0.96;
+            margin-bottom: 3.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.75;
+            font-weight: 400;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.25rem 3.25rem;
+            background: #0891b2;
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(8, 145, 178, 0.25);
+        }
+
+        .cta-button:hover {
+            background: #0e7490;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(8, 145, 178, 0.35);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1c1917;
+            color: #a8a29e;
+            text-align: center;
+            padding: 3.5rem 2rem;
+        }
+
+        footer p {
+            font-size: 0.9375rem;
+            font-weight: 400;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.125rem;
+            }
+
+            .manifesto blockquote {
+                font-size: 1.875rem;
+            }
+
+            .problema h2,
+            .solucoes h2,
+            .quem-somos h2,
+            .cta-final h2,
+            .como-funciona h2,
+            .faq h2 {
+                font-size: 2rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: flex-end;
+            }
+
+            .step {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .step-icon {
+                width: 60px;
+                height: 60px;
+                margin: 0 auto;
+            }
+
+            .step-icon svg {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background fixo -->
+    <div class="fixed-background"></div>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#0891b2"/>
+                            <stop offset="100%" style="stop-color:#06b6d4"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="100" height="100" rx="20" fill="url(#logoGrad)"/>
+                    <path d="M30 35 L30 65 M30 40 L40 40 M30 50 L40 50 M30 60 L40 60"
+                          stroke="white" stroke-width="6" stroke-linecap="round"/>
+                    <path d="M40 35 Q70 35 70 50 Q70 65 40 65"
+                          stroke="white" stroke-width="6" fill="none" stroke-linecap="round"/>
+                </svg>
+                <div>
+                    <div class="logo-text">DataPulse</div>
+                    <div class="logo-subtitle">Solutions</div>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="#solucoes">Soluções</a>
+                <a href="#como-funciona">Como Funciona</a>
+                <a href="#quem-somos">Sobre</a>
+                <a href="#contato" class="nav-cta">Agendar Diagnóstico</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container-text">
+            <h1>Transformamos dados
+                <br>dispersos em decisões claras</h1>
+            <p>Parceiros em automação de processos, business intelligence e segurança de dados para pequenos e médios negócios que querem crescer com método.</p>
+            <div class="hero-ctas">
+                <a href="#contato" class="btn-primary">Agendar Diagnóstico Gratuito</a>
+                <a href="#como-funciona" class="btn-secondary">Como Trabalhamos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MANIFESTO -->
+    <section class="manifesto">
+        <div class="container-text">
+            <blockquote>
+                "A maioria das empresas não tem um problema de tecnologia.<br>
+                Tem um problema de clareza."
+            </blockquote>
+            <ul>
+                <li>Processos manuais que consomem tempo e geram erros</li>
+                <li>Decisões tomadas sem dados confiáveis em tempo real</li>
+                <li>Sistemas que não conversam entre si, criando silos de informação</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- PROBLEMA -->
+    <section class="problema" id="problema">
+        <div>
+            <h2>Três Sinais de Que Está a Perder Dinheiro</h2>
+            <p class="problema-subtitle">Problemas comuns que resolvemos em parceria com os nossos clientes</p>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    </div>
+                    <h3>Tempo Desperdiçado</h3>
+                    <p>A sua equipa passa horas em tarefas repetitivas que poderiam ser automatizadas. Tempo que deveria estar focado em fazer o negócio crescer, não em preencher planilhas.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                    </div>
+                    <h3>Decisões no Escuro</h3>
+                    <p>Sem dashboards atualizados, toma decisões baseadas em intuição ou em planilhas desatualizadas. Isso deixa dinheiro na mesa e oportunidades escaparem.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    </div>
+                    <h3>Dados em Risco</h3>
+                    <p>Informações críticas do negócio expostas, sem backups automatizados ou conformidade RGPD. Um problema que pode custar muito caro.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="como-funciona" id="como-funciona">
+        <div>
+            <h2>Como Trabalhamos Juntos</h2>
+            <p class="como-funciona-subtitle">Parceria desde o primeiro dia, resultados desde a primeira entrega</p>
+
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="m21 21-4.35-4.35"/>
+                            <path d="M9 11l1 1 3-3"/>
+                        </svg>
+                    </div>
+                    <div class="step-content">
+                        <h3>Diagnóstico Gratuito (30 minutos)</h3>
+                        <p>Conversamos sobre o seu negócio, entendemos os processos atuais e identificamos onde estão os maiores gargalos. Sem compromisso, sem discurso de vendas. Só uma conversa honesta sobre se faz sentido trabalharmos juntos.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <path d="m9 15 2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <div class="step-content">
+                        <h3>Proposta Transparente (48 horas)</h3>
+                        <p>Apresentamos uma solução personalizada com cronograma realista e investimento claro. Não trabalhamos com pacotes fechados — cada negócio é único e merece uma abordagem sob medida.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.5 2v6h-6M2.5 22v-6h6"/>
+                            <path d="M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+                        </svg>
+                    </div>
+                    <div class="step-content">
+                        <h3>Desenvolvimento Iterativo</h3>
+                        <p>Construímos a solução em etapas, com demonstrações parciais e ajustes contínuos baseados no seu feedback. Você acompanha tudo e vê resultados desde cedo, não só no final.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                            <line x1="12" x2="12" y1="19" y2="22"/>
+                        </svg>
+                    </div>
+                    <div class="step-content">
+                        <h3>Suporte Contínuo</h3>
+                        <p>Entregamos, treinamos a equipe e ficamos disponíveis. Não desaparecemos após o deploy, continuamos parceiros para ajustes, melhorias e dúvidas que surgirem.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMEÇAR PEQUENO -->
+    <section class="comecar-pequeno">
+        <div class="container-text">
+            <h2>Nem todo negócio precisa começar grande</h2>
+            <p>Alguns clientes começam com uma landing page profissional.</p>
+            <p>Outros com um dashboard para acompanhar vendas em tempo real.</p>
+            <p>Alguns precisam automatizar o controlo de stock.</p>
+            <p>Todos começam com a base certa, e crescem de forma sustentável.</p>
+        </div>
+    </section>
+
+    <!-- SOLUÇÕES -->
+    <section class="solucoes" id="solucoes">
+        <div>
+            <h2>O Que Construímos Juntos</h2>
+            <p class="solucoes-subtitle">Soluções práticas que entregam resultados mensuráveis</p>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <h3>Automação de Processos</h3>
+                    <p>Integramos os seus sistemas existentes, eliminamos tarefas manuais repetitivas e criamos fluxos que funcionam sozinhos. Menos erro humano, mais tempo para o que realmente importa.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                    </div>
+                    <h3>Business Intelligence</h3>
+                    <p>Transformamos dados dispersos em dashboards claros e acionáveis. Vê onde está a ganhar dinheiro, onde está a perder, e toma decisões baseadas em números reais, não em intuição.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>Segurança & Compliance</h3>
+                    <p>Infraestrutura protegida desde o primeiro dia. Conformidade RGPD, backups automáticos, certificados de segurança. Dorme tranquilo sabendo que os dados do negócio estão seguros.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div>
+            <h2>Perguntas Frequentes</h2>
+            <p class="faq-subtitle">Respostas diretas às dúvidas mais comuns</p>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Quanto tempo demora um projeto?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Depende da complexidade. Uma landing page profissional leva 1 a 2 semanas. Um sistema de gestão customizado pode levar 4 a 8 semanas. Sempre com entregas parciais para ver o progresso.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Preciso saber programar ou ter conhecimento técnico?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Não. Entregamos tudo funcionando e treinamos a sua equipa. A ideia é que use os sistemas de forma simples, sem precisar entender código ou infraestrutura.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Como funciona o investimento?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Cada projeto é orçado individualmente após o diagnóstico. Trabalhamos com modelos flexíveis: projeto fechado, mensalidade de suporte ou híbrido. Sempre com proposta transparente antes de começar.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Funciona para o meu setor?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Provavelmente sim. Trabalhamos com comércio, restauração, serviços, importação e exportação, entre outros. Se tem processos manuais ou dados desorganizados, podemos ajudar. A melhor forma de saber é agendar o diagnóstico gratuito.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>E depois da entrega?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ficamos disponíveis via WhatsApp para dúvidas e ajustes. Oferecemos planos de manutenção opcionais para quem quer suporte prioritário e melhorias contínuas. Mas nunca deixamos ninguém sozinho.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Trabalham com sistemas já existentes?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim. Podemos integrar com ERPs, CRMs, plataformas de e-commerce e outras ferramentas que já usa. A ideia é fazer os sistemas conversarem entre si, não substituir tudo de uma vez.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Sou muito pequeno para isto?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Se está a perder tempo em tarefas manuais ou a tomar decisões sem dados, não é pequeno demais. Começamos com o que faz sentido agora e escalamos conforme o negócio cresce.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Oferecem garantia?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim. Garantimos que o sistema funciona conforme acordado. Se algo não estiver certo, ajustamos até ficar. E damos suporte pós-entrega para garantir que a equipa sabe usar tudo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUEM SOMOS -->
+    <section class="quem-somos" id="quem-somos">
+        <div>
+            <h2>Quem Somos</h2>
+            <p class="quem-somos-subtitle">Experiência complementar, visão partilhada</p>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <img class="team-photo" src="Everson.jpeg" alt="Everson Rubira">
+                    <h3>Everson Rubira</h3>
+                    <p class="team-role">Backend & Automação</p>
+                    <p class="team-bio">15 anos a gerir operações internacionais. Especialista em Java, Spring Boot e integração de sistemas. Transformo processos complexos em soluções simples que funcionam.</p>
+                </div>
+
+                <div class="team-member">
+                    <img class="team-photo" src="Pedro.png" alt="Pedro Alonso">
+                    <h3>Pedro Alonso</h3>
+                    <p class="team-role">Business Intelligence & Cibersegurança</p>
+                    <p class="team-bio">Especialista em dashboards, análise de dados e proteção de informação. Certificações CNCS. Acredito que dados bem tratados sempre vencem a intuição.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-final" id="contato">
+        <div>
+            <h2>Se fizer sentido para si, conversamos</h2>
+            <p>Diagnóstico gratuito de 30 minutos. Sem compromisso, sem discurso de vendas agressivo. Apenas uma conversa honesta sobre como podemos ajudar o seu negócio a crescer com método.</p>
+            <a href="https://wa.me/351910625090?text=Olá!%20Vim%20pelo%20site%20da%20DataPulse%20e%20gostaria%20de%20agendar%20um%20diagnóstico%20gratuito."
+               class="cta-button" target="_blank">
+                Agendar Agora via WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 DataPulse Solutions &bull; Automação, BI e Segurança para PMEs &bull; Portugal &bull; RGPD Compliant</p>
+    </footer>
+
+    <script>
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
