@@ -146,6 +146,42 @@
             box-shadow: 0 2px 8px rgba(13, 115, 119, 0.25);
         }
 
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            background: rgba(44, 36, 32, 0.06);
+            border-radius: 8px;
+            padding: 2px;
+            gap: 0;
+            border: 1px solid rgba(44, 36, 32, 0.08);
+        }
+
+        .lang-btn {
+            padding: 0.35rem 0.65rem;
+            border: none;
+            background: transparent;
+            color: #8a7e76;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            letter-spacing: 0.02em;
+        }
+
+        .lang-btn.active {
+            background: #0d7377;
+            color: white;
+            box-shadow: 0 1px 4px rgba(13, 115, 119, 0.25);
+        }
+
+        .lang-btn:not(.active):hover {
+            color: #2c2420;
+            background: rgba(44, 36, 32, 0.05);
+        }
+
         /* Hamburger */
         .hamburger {
             display: none;
@@ -669,6 +705,29 @@
             font-weight: 400;
         }
 
+        .team-linkedin {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 1rem;
+            color: #0d7377;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .team-linkedin:hover {
+            color: #0a5c5f;
+            transform: translateY(-1px);
+        }
+
+        .team-linkedin svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
         /* CTA FINAL */
         .cta-final {
             background-image:
@@ -844,6 +903,10 @@
                 text-align: center;
             }
 
+            .lang-switcher {
+                align-self: center;
+            }
+
             .step {
                 grid-template-columns: 1fr;
                 gap: 1.25rem;
@@ -947,10 +1010,14 @@
                 <span></span>
             </button>
             <div class="nav-links">
-                <a href="#solucoes">Soluções</a>
-                <a href="#como-funciona">Como Funciona</a>
-                <a href="#quem-somos">Sobre</a>
-                <a href="#contato" class="nav-cta">Agendar Diagnóstico</a>
+                <a href="#solucoes" data-pt="Soluções" data-en="Solutions">Soluções</a>
+                <a href="#como-funciona" data-pt="Como Funciona" data-en="How It Works">Como Funciona</a>
+                <a href="#quem-somos" data-pt="Sobre" data-en="About">Sobre</a>
+                <a href="#contato" class="nav-cta" data-pt="Agendar Diagnóstico" data-en="Book a Call">Agendar Diagnóstico</a>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" onclick="setLang('pt')" aria-label="Português">PT</button>
+                    <button class="lang-btn" onclick="setLang('en')" aria-label="English">EN</button>
+                </div>
             </div>
         </div>
     </nav>
@@ -958,12 +1025,12 @@
     <!-- HERO -->
     <section class="hero">
         <div class="container-text">
-            <h1>Transformamos dados
+            <h1 data-pt="Transformamos dados<br>dispersos em decisões claras" data-en="We turn scattered data<br>into clear decisions">Transformamos dados
                 <br>dispersos em decisões claras</h1>
-            <p>Parceiros em automação de processos, business intelligence e segurança de dados para pequenos e médios negócios que querem crescer com método.</p>
+            <p data-pt="Parceiros em automação de processos, business intelligence e segurança de dados para pequenos e médios negócios que querem crescer com método." data-en="Partners in process automation, business intelligence and data security for small and medium businesses that want to grow with method.">Parceiros em automação de processos, business intelligence e segurança de dados para pequenos e médios negócios que querem crescer com método.</p>
             <div class="hero-ctas">
-                <a href="#contato" class="btn-primary">Agendar Diagnóstico Gratuito</a>
-                <a href="#como-funciona" class="btn-secondary">Como Trabalhamos</a>
+                <a href="#contato" class="btn-primary" data-pt="Agendar Diagnóstico Gratuito" data-en="Book a Free Assessment">Agendar Diagnóstico Gratuito</a>
+                <a href="#como-funciona" class="btn-secondary" data-pt="Como Trabalhamos" data-en="How We Work">Como Trabalhamos</a>
             </div>
         </div>
     </section>
@@ -971,14 +1038,14 @@
     <!-- MANIFESTO -->
     <section class="manifesto">
         <div class="container-text">
-            <blockquote>
+            <blockquote data-pt="&ldquo;A maioria das empresas não tem um problema de tecnologia.<br>Tem um problema de clareza.&rdquo;" data-en="&ldquo;Most companies don't have a technology problem.<br>They have a clarity problem.&rdquo;">
                 "A maioria das empresas não tem um problema de tecnologia.<br>
                 Tem um problema de clareza."
             </blockquote>
             <ul>
-                <li>Processos manuais que consomem tempo e geram erros</li>
-                <li>Decisões tomadas sem dados confiáveis em tempo real</li>
-                <li>Sistemas que não conversam entre si, criando silos de informação</li>
+                <li data-pt="Processos manuais que consomem tempo e geram erros" data-en="Manual processes that waste time and generate errors">Processos manuais que consomem tempo e geram erros</li>
+                <li data-pt="Decisões tomadas sem dados confiáveis em tempo real" data-en="Decisions made without reliable real-time data">Decisões tomadas sem dados confiáveis em tempo real</li>
+                <li data-pt="Sistemas que não conversam entre si, criando silos de informação" data-en="Systems that don't talk to each other, creating information silos">Sistemas que não conversam entre si, criando silos de informação</li>
             </ul>
         </div>
     </section>
@@ -986,32 +1053,32 @@
     <!-- PROBLEMA -->
     <section class="problema" id="problema">
         <div>
-            <h2>Três Sinais de Que Está a Perder Dinheiro</h2>
-            <p class="problema-subtitle">Problemas comuns que resolvemos em parceria com os nossos clientes</p>
+            <h2 data-pt="Três Sinais de Que Está a Perder Dinheiro" data-en="Three Signs You're Losing Money">Três Sinais de Que Está a Perder Dinheiro</h2>
+            <p class="problema-subtitle" data-pt="Problemas comuns que resolvemos em parceria com os nossos clientes" data-en="Common problems we solve in partnership with our clients">Problemas comuns que resolvemos em parceria com os nossos clientes</p>
 
             <div class="cards-grid">
                 <div class="card">
                     <div class="card-icon">
                         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
                     </div>
-                    <h3>Tempo Desperdiçado</h3>
-                    <p>A sua equipa passa horas em tarefas repetitivas que poderiam ser automatizadas. Tempo que deveria estar focado em fazer o negócio crescer, não em preencher planilhas.</p>
+                    <h3 data-pt="Tempo Desperdiçado" data-en="Wasted Time">Tempo Desperdiçado</h3>
+                    <p data-pt="A sua equipa passa horas em tarefas repetitivas que poderiam ser automatizadas. Tempo que deveria estar focado em fazer o negócio crescer, não em preencher planilhas." data-en="Your team spends hours on repetitive tasks that could be automated. Time that should be focused on growing the business, not filling spreadsheets.">A sua equipa passa horas em tarefas repetitivas que poderiam ser automatizadas. Tempo que deveria estar focado em fazer o negócio crescer, não em preencher planilhas.</p>
                 </div>
 
                 <div class="card">
                     <div class="card-icon">
                         <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                     </div>
-                    <h3>Decisões no Escuro</h3>
-                    <p>Sem dashboards atualizados, toma decisões baseadas em intuição ou em planilhas desatualizadas. Isso deixa dinheiro na mesa e oportunidades escaparem.</p>
+                    <h3 data-pt="Decisões no Escuro" data-en="Decisions in the Dark">Decisões no Escuro</h3>
+                    <p data-pt="Sem dashboards atualizados, toma decisões baseadas em intuição ou em planilhas desatualizadas. Isso deixa dinheiro na mesa e oportunidades escaparem." data-en="Without updated dashboards, you make decisions based on intuition or outdated spreadsheets. That leaves money on the table and lets opportunities slip away.">Sem dashboards atualizados, toma decisões baseadas em intuição ou em planilhas desatualizadas. Isso deixa dinheiro na mesa e oportunidades escaparem.</p>
                 </div>
 
                 <div class="card">
                     <div class="card-icon">
                         <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                     </div>
-                    <h3>Dados em Risco</h3>
-                    <p>Informações críticas do negócio expostas, sem backups automatizados ou conformidade RGPD. Um problema que pode custar muito caro.</p>
+                    <h3 data-pt="Dados em Risco" data-en="Data at Risk">Dados em Risco</h3>
+                    <p data-pt="Informações críticas do negócio expostas, sem backups automatizados ou conformidade RGPD. Um problema que pode custar muito caro." data-en="Critical business information exposed, without automated backups or GDPR compliance. A problem that can cost dearly.">Informações críticas do negócio expostas, sem backups automatizados ou conformidade RGPD. Um problema que pode custar muito caro.</p>
                 </div>
             </div>
         </div>
@@ -1020,8 +1087,8 @@
     <!-- COMO FUNCIONA -->
     <section class="como-funciona" id="como-funciona">
         <div>
-            <h2>Como Trabalhamos Juntos</h2>
-            <p class="como-funciona-subtitle">Parceria desde o primeiro dia, resultados desde a primeira entrega</p>
+            <h2 data-pt="Como Trabalhamos Juntos" data-en="How We Work Together">Como Trabalhamos Juntos</h2>
+            <p class="como-funciona-subtitle" data-pt="Parceria desde o primeiro dia, resultados desde a primeira entrega" data-en="Partnership from day one, results from the first delivery">Parceria desde o primeiro dia, resultados desde a primeira entrega</p>
 
             <div class="steps-container">
                 <div class="step">
@@ -1033,8 +1100,8 @@
                         </svg>
                     </div>
                     <div class="step-content">
-                        <h3>Diagnóstico Gratuito (30 minutos)</h3>
-                        <p>Conversamos sobre o seu negócio, entendemos os processos atuais e identificamos onde estão os maiores gargalos. Sem compromisso, sem discurso de vendas.</p>
+                        <h3 data-pt="Diagnóstico Gratuito (30 minutos)" data-en="Free Assessment (30 minutes)">Diagnóstico Gratuito (30 minutos)</h3>
+                        <p data-pt="Conversamos sobre o seu negócio, entendemos os processos atuais e identificamos onde estão os maiores gargalos. Sem compromisso, sem discurso de vendas." data-en="We talk about your business, understand current processes and identify the biggest bottlenecks. No commitment, no sales pitch.">Conversamos sobre o seu negócio, entendemos os processos atuais e identificamos onde estão os maiores gargalos. Sem compromisso, sem discurso de vendas.</p>
                     </div>
                 </div>
 
@@ -1047,8 +1114,8 @@
                         </svg>
                     </div>
                     <div class="step-content">
-                        <h3>Proposta Transparente (48 horas)</h3>
-                        <p>Apresentamos uma solução personalizada com cronograma realista e investimento claro. Cada negócio é único e merece uma abordagem sob medida.</p>
+                        <h3 data-pt="Proposta Transparente (48 horas)" data-en="Transparent Proposal (48 hours)">Proposta Transparente (48 horas)</h3>
+                        <p data-pt="Apresentamos uma solução personalizada com cronograma realista e investimento claro. Cada negócio é único e merece uma abordagem sob medida." data-en="We present a custom solution with a realistic timeline and clear investment. Every business is unique and deserves a tailored approach.">Apresentamos uma solução personalizada com cronograma realista e investimento claro. Cada negócio é único e merece uma abordagem sob medida.</p>
                     </div>
                 </div>
 
@@ -1060,8 +1127,8 @@
                         </svg>
                     </div>
                     <div class="step-content">
-                        <h3>Desenvolvimento Iterativo</h3>
-                        <p>Construímos a solução em etapas, com demonstrações parciais e ajustes contínuos baseados no seu feedback. Resultados desde cedo, não só no final.</p>
+                        <h3 data-pt="Desenvolvimento Iterativo" data-en="Iterative Development">Desenvolvimento Iterativo</h3>
+                        <p data-pt="Construímos a solução em etapas, com demonstrações parciais e ajustes contínuos baseados no seu feedback. Resultados desde cedo, não só no final." data-en="We build the solution in stages, with partial demos and continuous adjustments based on your feedback. Results early on, not just at the end.">Construímos a solução em etapas, com demonstrações parciais e ajustes contínuos baseados no seu feedback. Resultados desde cedo, não só no final.</p>
                     </div>
                 </div>
 
@@ -1074,8 +1141,8 @@
                         </svg>
                     </div>
                     <div class="step-content">
-                        <h3>Suporte Contínuo</h3>
-                        <p>Entregamos, treinamos a equipe e ficamos disponíveis. Não desaparecemos após o deploy, continuamos parceiros para ajustes e melhorias.</p>
+                        <h3 data-pt="Suporte Contínuo" data-en="Ongoing Support">Suporte Contínuo</h3>
+                        <p data-pt="Entregamos, treinamos a equipe e ficamos disponíveis. Não desaparecemos após o deploy, continuamos parceiros para ajustes e melhorias." data-en="We deliver, train the team and stay available. We don't disappear after deployment — we remain partners for adjustments and improvements.">Entregamos, treinamos a equipe e ficamos disponíveis. Não desaparecemos após o deploy, continuamos parceiros para ajustes e melhorias.</p>
                     </div>
                 </div>
             </div>
@@ -1085,43 +1152,43 @@
     <!-- COMEÇAR PEQUENO -->
     <section class="comecar-pequeno">
         <div class="container-text">
-            <h2>Nem todo negócio precisa começar grande</h2>
-            <p>Alguns clientes começam com uma landing page profissional.</p>
-            <p>Outros com um dashboard para acompanhar vendas em tempo real.</p>
-            <p>Alguns precisam automatizar o controlo de stock.</p>
-            <p>Todos começam com a base certa, e crescem de forma sustentável.</p>
+            <h2 data-pt="Nem todo negócio precisa começar grande" data-en="Not every business needs to start big">Nem todo negócio precisa começar grande</h2>
+            <p data-pt="Alguns clientes começam com uma landing page profissional." data-en="Some clients start with a professional landing page.">Alguns clientes começam com uma landing page profissional.</p>
+            <p data-pt="Outros com um dashboard para acompanhar vendas em tempo real." data-en="Others with a dashboard to track sales in real time.">Outros com um dashboard para acompanhar vendas em tempo real.</p>
+            <p data-pt="Alguns precisam automatizar o controlo de stock." data-en="Some need to automate stock control.">Alguns precisam automatizar o controlo de stock.</p>
+            <p data-pt="Todos começam com a base certa, e crescem de forma sustentável." data-en="All start with the right foundation, and grow sustainably.">Todos começam com a base certa, e crescem de forma sustentável.</p>
         </div>
     </section>
 
     <!-- SOLUÇÕES -->
     <section class="solucoes" id="solucoes">
         <div>
-            <h2>O Que Construímos Juntos</h2>
-            <p class="solucoes-subtitle">Soluções práticas que entregam resultados mensuráveis</p>
+            <h2 data-pt="O Que Construímos Juntos" data-en="What We Build Together">O Que Construímos Juntos</h2>
+            <p class="solucoes-subtitle" data-pt="Soluções práticas que entregam resultados mensuráveis" data-en="Practical solutions that deliver measurable results">Soluções práticas que entregam resultados mensuráveis</p>
 
             <div class="cards-grid">
                 <div class="card">
                     <div class="card-icon">
                         <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
                     </div>
-                    <h3>Automação de Processos</h3>
-                    <p>Integramos os seus sistemas existentes, eliminamos tarefas manuais repetitivas e criamos fluxos que funcionam sozinhos. Menos erro humano, mais tempo para o que importa.</p>
+                    <h3 data-pt="Automação de Processos" data-en="Process Automation">Automação de Processos</h3>
+                    <p data-pt="Integramos os seus sistemas existentes, eliminamos tarefas manuais repetitivas e criamos fluxos que funcionam sozinhos. Menos erro humano, mais tempo para o que importa." data-en="We integrate your existing systems, eliminate repetitive manual tasks and create workflows that run on their own. Less human error, more time for what matters.">Integramos os seus sistemas existentes, eliminamos tarefas manuais repetitivas e criamos fluxos que funcionam sozinhos. Menos erro humano, mais tempo para o que importa.</p>
                 </div>
 
                 <div class="card">
                     <div class="card-icon">
                         <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
                     </div>
-                    <h3>Business Intelligence</h3>
-                    <p>Transformamos dados dispersos em dashboards claros e acionáveis. Decisões baseadas em números reais, não em intuição.</p>
+                    <h3 data-pt="Business Intelligence" data-en="Business Intelligence">Business Intelligence</h3>
+                    <p data-pt="Transformamos dados dispersos em dashboards claros e acionáveis. Decisões baseadas em números reais, não em intuição." data-en="We turn scattered data into clear, actionable dashboards. Decisions based on real numbers, not intuition.">Transformamos dados dispersos em dashboards claros e acionáveis. Decisões baseadas em números reais, não em intuição.</p>
                 </div>
 
                 <div class="card">
                     <div class="card-icon">
                         <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     </div>
-                    <h3>Segurança & Compliance</h3>
-                    <p>Conformidade RGPD, backups automáticos, certificados de segurança. Dorme tranquilo sabendo que os dados do negócio estão seguros.</p>
+                    <h3 data-pt="Segurança & Compliance" data-en="Security & Compliance">Segurança & Compliance</h3>
+                    <p data-pt="Conformidade RGPD, backups automáticos, certificados de segurança. Dorme tranquilo sabendo que os dados do negócio estão seguros." data-en="GDPR compliance, automated backups, security certificates. Sleep well knowing your business data is safe.">Conformidade RGPD, backups automáticos, certificados de segurança. Dorme tranquilo sabendo que os dados do negócio estão seguros.</p>
                 </div>
             </div>
         </div>
@@ -1130,87 +1197,87 @@
     <!-- FAQ -->
     <section class="faq">
         <div>
-            <h2>Perguntas Frequentes</h2>
-            <p class="faq-subtitle">Respostas diretas às dúvidas mais comuns</p>
+            <h2 data-pt="Perguntas Frequentes" data-en="Frequently Asked Questions">Perguntas Frequentes</h2>
+            <p class="faq-subtitle" data-pt="Respostas diretas às dúvidas mais comuns" data-en="Straight answers to the most common questions">Respostas diretas às dúvidas mais comuns</p>
 
             <div class="faq-container">
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>Quanto tempo demora um projeto?</h3>
+                        <h3 data-pt="Quanto tempo demora um projeto?" data-en="How long does a project take?">Quanto tempo demora um projeto?</h3>
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Depende da complexidade. Uma landing page profissional leva 1 a 2 semanas. Um sistema de gestão customizado pode levar 4 a 8 semanas. Sempre com entregas parciais para ver o progresso.</p>
+                        <p data-pt="Depende da complexidade. Uma landing page profissional leva 1 a 2 semanas. Um sistema de gestão customizado pode levar 4 a 8 semanas. Sempre com entregas parciais para ver o progresso." data-en="It depends on the complexity. A professional landing page takes 1 to 2 weeks. A custom management system can take 4 to 8 weeks. Always with partial deliveries so you can see progress.">Depende da complexidade. Uma landing page profissional leva 1 a 2 semanas. Um sistema de gestão customizado pode levar 4 a 8 semanas. Sempre com entregas parciais para ver o progresso.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>Preciso saber programar ou ter conhecimento técnico?</h3>
+                        <h3 data-pt="Preciso saber programar ou ter conhecimento técnico?" data-en="Do I need to know how to code or have technical knowledge?">Preciso saber programar ou ter conhecimento técnico?</h3>
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Não. Entregamos tudo funcionando e treinamos a sua equipa. A ideia é que use os sistemas de forma simples, sem precisar entender código ou infraestrutura.</p>
+                        <p data-pt="Não. Entregamos tudo funcionando e treinamos a sua equipa. A ideia é que use os sistemas de forma simples, sem precisar entender código ou infraestrutura." data-en="No. We deliver everything working and train your team. The idea is for you to use the systems simply, without needing to understand code or infrastructure.">Não. Entregamos tudo funcionando e treinamos a sua equipa. A ideia é que use os sistemas de forma simples, sem precisar entender código ou infraestrutura.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>Como funciona o investimento?</h3>
+                        <h3 data-pt="Como funciona o investimento?" data-en="How does the investment work?">Como funciona o investimento?</h3>
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Cada projeto é orçado individualmente após o diagnóstico. Trabalhamos com modelos flexíveis: projeto fechado, mensalidade de suporte ou híbrido. Sempre com proposta transparente antes de começar.</p>
+                        <p data-pt="Cada projeto é orçado individualmente após o diagnóstico. Trabalhamos com modelos flexíveis: projeto fechado, mensalidade de suporte ou híbrido. Sempre com proposta transparente antes de começar." data-en="Each project is individually budgeted after the assessment. We work with flexible models: fixed project, support subscription or hybrid. Always with a transparent proposal before starting.">Cada projeto é orçado individualmente após o diagnóstico. Trabalhamos com modelos flexíveis: projeto fechado, mensalidade de suporte ou híbrido. Sempre com proposta transparente antes de começar.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>Funciona para o meu setor?</h3>
+                        <h3 data-pt="Funciona para o meu setor?" data-en="Does it work for my industry?">Funciona para o meu setor?</h3>
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Provavelmente sim. Trabalhamos com comércio, restauração, serviços, importação e exportação, entre outros. A melhor forma de saber é agendar o diagnóstico gratuito.</p>
+                        <p data-pt="Provavelmente sim. Trabalhamos com comércio, restauração, serviços, importação e exportação, entre outros. A melhor forma de saber é agendar o diagnóstico gratuito." data-en="Most likely yes. We work with retail, restaurants, services, import and export, among others. The best way to find out is to schedule the free assessment.">Provavelmente sim. Trabalhamos com comércio, restauração, serviços, importação e exportação, entre outros. A melhor forma de saber é agendar o diagnóstico gratuito.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>E depois da entrega?</h3>
+                        <h3 data-pt="E depois da entrega?" data-en="And after delivery?">E depois da entrega?</h3>
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Ficamos disponíveis via WhatsApp para dúvidas e ajustes. Oferecemos planos de manutenção opcionais para quem quer suporte prioritário e melhorias contínuas.</p>
+                        <p data-pt="Ficamos disponíveis via WhatsApp para dúvidas e ajustes. Oferecemos planos de manutenção opcionais para quem quer suporte prioritário e melhorias contínuas." data-en="We stay available via WhatsApp for questions and adjustments. We offer optional maintenance plans for those who want priority support and continuous improvements.">Ficamos disponíveis via WhatsApp para dúvidas e ajustes. Oferecemos planos de manutenção opcionais para quem quer suporte prioritário e melhorias contínuas.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>Trabalham com sistemas já existentes?</h3>
+                        <h3 data-pt="Trabalham com sistemas já existentes?" data-en="Do you work with existing systems?">Trabalham com sistemas já existentes?</h3>
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Sim. Podemos integrar com ERPs, CRMs, plataformas de e-commerce e outras ferramentas que já usa. A ideia é fazer os sistemas conversarem entre si.</p>
+                        <p data-pt="Sim. Podemos integrar com ERPs, CRMs, plataformas de e-commerce e outras ferramentas que já usa. A ideia é fazer os sistemas conversarem entre si." data-en="Yes. We can integrate with ERPs, CRMs, e-commerce platforms and other tools you already use. The idea is to make systems talk to each other.">Sim. Podemos integrar com ERPs, CRMs, plataformas de e-commerce e outras ferramentas que já usa. A ideia é fazer os sistemas conversarem entre si.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>Sou muito pequeno para isto?</h3>
+                        <h3 data-pt="Sou muito pequeno para isto?" data-en="Am I too small for this?">Sou muito pequeno para isto?</h3>
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Se está a perder tempo em tarefas manuais ou a tomar decisões sem dados, não é pequeno demais. Começamos com o que faz sentido agora e escalamos conforme o negócio cresce.</p>
+                        <p data-pt="Se está a perder tempo em tarefas manuais ou a tomar decisões sem dados, não é pequeno demais. Começamos com o que faz sentido agora e escalamos conforme o negócio cresce." data-en="If you're wasting time on manual tasks or making decisions without data, you're not too small. We start with what makes sense now and scale as the business grows.">Se está a perder tempo em tarefas manuais ou a tomar decisões sem dados, não é pequeno demais. Começamos com o que faz sentido agora e escalamos conforme o negócio cresce.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h3>Oferecem garantia?</h3>
+                        <h3 data-pt="Oferecem garantia?" data-en="Do you offer a guarantee?">Oferecem garantia?</h3>
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Sim. Garantimos que o sistema funciona conforme acordado. Se algo não estiver certo, ajustamos até ficar. E damos suporte pós-entrega para garantir que a equipa sabe usar tudo.</p>
+                        <p data-pt="Sim. Garantimos que o sistema funciona conforme acordado. Se algo não estiver certo, ajustamos até ficar. E damos suporte pós-entrega para garantir que a equipa sabe usar tudo." data-en="Yes. We guarantee the system works as agreed. If something isn't right, we adjust until it is. And we provide post-delivery support to ensure the team knows how to use everything.">Sim. Garantimos que o sistema funciona conforme acordado. Se algo não estiver certo, ajustamos até ficar. E damos suporte pós-entrega para garantir que a equipa sabe usar tudo.</p>
                     </div>
                 </div>
             </div>
@@ -1220,22 +1287,30 @@
     <!-- QUEM SOMOS -->
     <section class="quem-somos" id="quem-somos">
         <div>
-            <h2>Quem Somos</h2>
-            <p class="quem-somos-subtitle">Experiência complementar, visão partilhada</p>
+            <h2 data-pt="Quem Somos" data-en="Who We Are">Quem Somos</h2>
+            <p class="quem-somos-subtitle" data-pt="Experiência complementar, visão partilhada" data-en="Complementary experience, shared vision">Experiência complementar, visão partilhada</p>
 
             <div class="team-grid">
                 <div class="team-member">
                     <img class="team-photo" src="Everson.jpeg" alt="Everson Rubira">
                     <h3>Everson Rubira</h3>
-                    <p class="team-role">Backend & Automação</p>
-                    <p class="team-bio">15 anos a gerir operações internacionais. Especialista em Java, Spring Boot e integração de sistemas. Transformo processos complexos em soluções simples que funcionam.</p>
+                    <p class="team-role" data-pt="Backend & Automação" data-en="Backend & Automation">Backend & Automação</p>
+                    <p class="team-bio" data-pt="15 anos a gerir operações internacionais. Especialista em Java, Spring Boot e integração de sistemas. Transformo processos complexos em soluções simples que funcionam." data-en="15 years managing international operations. Specialist in Java, Spring Boot and systems integration. I turn complex processes into simple solutions that work.">15 anos a gerir operações internacionais. Especialista em Java, Spring Boot e integração de sistemas. Transformo processos complexos em soluções simples que funcionam.</p>
+                    <a href="https://www.linkedin.com/in/eversonrubira/" target="_blank" rel="noopener noreferrer" class="team-linkedin">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        LinkedIn
+                    </a>
                 </div>
 
                 <div class="team-member">
                     <img class="team-photo" src="Pedro.png" alt="Pedro Alonso">
                     <h3>Pedro Alonso</h3>
-                    <p class="team-role">Business Intelligence & Cibersegurança</p>
-                    <p class="team-bio">Especialista em dashboards, análise de dados e proteção de informação. Certificações CNCS. Acredito que dados bem tratados sempre vencem a intuição.</p>
+                    <p class="team-role" data-pt="Business Intelligence & Cibersegurança" data-en="Business Intelligence & Cybersecurity">Business Intelligence & Cibersegurança</p>
+                    <p class="team-bio" data-pt="Especialista em dashboards, análise de dados e proteção de informação. Certificações CNCS. Acredito que dados bem tratados sempre vencem a intuição." data-en="Specialist in dashboards, data analysis and information security. CNCS certifications. I believe well-treated data always beats intuition.">Especialista em dashboards, análise de dados e proteção de informação. Certificações CNCS. Acredito que dados bem tratados sempre vencem a intuição.</p>
+                    <a href="https://www.linkedin.com/in/pedrovfa/" target="_blank" rel="noopener noreferrer" class="team-linkedin">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        LinkedIn
+                    </a>
                 </div>
             </div>
         </div>
@@ -1244,10 +1319,10 @@
     <!-- CTA FINAL -->
     <section class="cta-final" id="contato">
         <div>
-            <h2>Se fizer sentido para si, conversamos</h2>
-            <p>Diagnóstico gratuito de 30 minutos. Sem compromisso, sem discurso de vendas agressivo. Apenas uma conversa honesta sobre como podemos ajudar o seu negócio a crescer com método.</p>
+            <h2 data-pt="Se fizer sentido para si, conversamos" data-en="If it makes sense for you, let's talk">Se fizer sentido para si, conversamos</h2>
+            <p data-pt="Diagnóstico gratuito de 30 minutos. Sem compromisso, sem discurso de vendas agressivo. Apenas uma conversa honesta sobre como podemos ajudar o seu negócio a crescer com método." data-en="Free 30-minute assessment. No commitment, no aggressive sales pitch. Just an honest conversation about how we can help your business grow with method.">Diagnóstico gratuito de 30 minutos. Sem compromisso, sem discurso de vendas agressivo. Apenas uma conversa honesta sobre como podemos ajudar o seu negócio a crescer com método.</p>
             <a href="https://wa.me/351910625090?text=Olá!%20Vim%20pelo%20site%20da%20DataPulse%20e%20gostaria%20de%20agendar%20um%20diagnóstico%20gratuito."
-               class="cta-button" target="_blank">
+               class="cta-button" target="_blank" data-pt="Agendar Agora via WhatsApp" data-en="Book Now via WhatsApp">
                 Agendar Agora via WhatsApp
             </a>
         </div>
@@ -1255,7 +1330,7 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2025 DataPulse Solutions &bull; Automação, BI e Segurança para PMEs &bull; Portugal &bull; RGPD Compliant</p>
+        <p data-pt="&copy; 2026 DataPulse Solutions &bull; Automação, BI e Segurança para PMEs &bull; Portugal &bull; RGPD Compliant" data-en="&copy; 2026 DataPulse Solutions &bull; Automation, BI &amp; Security for SMEs &bull; Portugal &bull; GDPR Compliant">&copy; 2026 DataPulse Solutions &bull; Automação, BI e Segurança para PMEs &bull; Portugal &bull; RGPD Compliant</p>
     </footer>
 
     <script>
@@ -1284,6 +1359,26 @@
                 document.querySelector('.nav-links').classList.remove('active');
             });
         });
+
+        // Language switcher
+        function setLang(lang) {
+            document.documentElement.lang = lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.textContent.trim() === lang.toUpperCase());
+            });
+            document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+                el.innerHTML = el.getAttribute('data-' + lang);
+            });
+            localStorage.setItem('dp-lang', lang);
+        }
+
+        // Load saved language preference
+        (function() {
+            var saved = localStorage.getItem('dp-lang');
+            if (saved && saved !== 'pt') {
+                setLang(saved);
+            }
+        })();
     </script>
 </body>
 </html>
