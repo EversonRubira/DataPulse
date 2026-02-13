@@ -98,9 +98,9 @@
 
         .logo svg,
         .logo img {
-            height: 40px;
+            height: 44px;
             width: auto;
-            max-width: 200px;
+            max-width: 260px;
             object-fit: contain;
         }
 
@@ -979,7 +979,22 @@
     <nav>
         <div class="container">
             <a href="#" class="logo">
-                <img src="datapulse_logo_embed.svg" alt="DataPulse Solutions" style="width: auto; height: 36px;">
+                <svg viewBox="0 0 260 44" xmlns="http://www.w3.org/2000/svg" aria-label="DataPulse Solutions">
+                    <defs>
+                        <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#2563a8"/>
+                            <stop offset="100%" stop-color="#38bdf8"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Icon -->
+                    <rect width="44" height="44" rx="10" fill="url(#logo-grad)"/>
+                    <path d="M12 10L12 34" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M12 10Q28 10 28 22Q28 34 12 34" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <path d="M30 14L36 22L30 30" stroke="white" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+                    <path d="M34 16.5L39 22L34 27.5" stroke="white" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+                    <!-- Text -->
+                    <text x="52" y="31" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="26" font-weight="700" fill="#1a2b42" letter-spacing="-0.5">Data<tspan fill="#2563a8">Pulse</tspan></text>
+                </svg>
             </a>
             <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
                 <span></span>
